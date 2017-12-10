@@ -10,6 +10,14 @@ import {
     ViewChild
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { Route, Routes } from '@angular/router';
+import { globalRoutes } from '../routing';
+
+// Data for generation of navigation links
+export interface RouteLinkData {
+    label: string;
+    path: string;
+}
 
 /**
  * Main navigation component
@@ -29,6 +37,14 @@ export class NavigationComponent implements OnDestroy, OnInit {
     // Handle media queries
     public mobileQuery: MediaQueryList;
     private _mobileQueryListener: () => void;
+
+    // create ling data object
+    private routeLinks: RouteLinkData[] = globalRoutes.map(route => {
+        return {
+            label: route.data['routeTitle'],
+            path: route.path
+        };
+    });
 
     // reference to sidenav links container
     @ViewChild('sidenavList') private sidenavList: ElementRef;

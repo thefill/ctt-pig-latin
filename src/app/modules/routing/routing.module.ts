@@ -1,15 +1,45 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from '../about';
+import { SettingsComponent } from '../settings';
+import { HistoryComponent } from '../history';
+import { SentenceTranslatorComponent } from '../sentence-translator';
 
 // Object with all app routes
-const routes: Routes = [
-    { path: 'about', component: AboutComponent }
+export const globalRoutes: Routes = [
+    {
+        path: '',
+        component: SentenceTranslatorComponent,
+        data: {
+            routeTitle: 'Translator'
+        }
+    },
+    {
+        path: 'history',
+        component: HistoryComponent,
+        data: {
+            routeTitle: 'Translation history'
+        }
+    },
+    {
+        path: 'settings',
+        component: SettingsComponent,
+        data: {
+            routeTitle: 'Settings'
+        }
+    },
+    {
+        path: 'about',
+        component: AboutComponent,
+        data: {
+            routeTitle: 'About'
+        }
+    }
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(globalRoutes)
     ],
     exports: [
         RouterModule

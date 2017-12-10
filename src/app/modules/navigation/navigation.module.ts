@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation.component';
 import { MaterialThemeModule } from '../material-theme';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { RoutingModule } from '../routing/routing.module';
+import { RoutingModule } from '../routing';
 
 /**
  * Module for the main app navigation

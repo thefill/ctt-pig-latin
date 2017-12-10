@@ -6,7 +6,7 @@ import { HeaderModule } from './modules/header';
 import { MaterialThemeModule } from './modules/material-theme';
 import { NavigationModule } from './modules/navigation';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { RoutingModule } from './modules/routing/routing.module';
+import { RoutingModule } from './modules/routing';
 import { SentenceTranslatorModule } from './modules/sentence-translator';
 import { SettingsModule } from './modules/settings';
 import { HistoryModule } from './modules/history';
