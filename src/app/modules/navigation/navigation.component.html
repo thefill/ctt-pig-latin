@@ -1,21 +1,29 @@
-<mat-sidenav-container class="main-container">
+<mat-sidenav-container class="main-container"
+                       (backdropClick)="onHide()">
     <!-- Sidenav -->
     <mat-sidenav
         class="sidenav"
         position="end"
         [mode]="mobileQuery.matches ? 'over' : 'push'"
-        [opened]="show"
+        [(opened)]="show"
         [fixedInViewport]="true"
-        [fixedTopGap]="mobileQuery.matches ? 56 : 64">
-        Translator <br>
-        Full history <br>
-        Settings <br>
-        About <br>
+        [fixedTopGap]="mobileQuery.matches ? 56 : 64"
+    >
+        <!-- Sidenav content -->
+        <ng-container class="sidenav-content">
+            <ul class="sidenav-list" #sidenavList>
+                <li><a class="sidenav-link" mat-button routerLink="/">Translator</a></li>
+                <li><a class="sidenav-link" mat-button routerLink="/history">Full history</a></li>
+                <li><a class="sidenav-link" mat-button routerLink="/settings">Settings</a></li>
+                <li><a class="sidenav-link" mat-button routerLink="/about">About</a></li>
+            </ul>
+        </ng-container>
     </mat-sidenav>
 
     <!-- Main content-->
     <mat-sidenav-content>
         <div class="content-wrapper">
+            <!-- Project content from outside -->
             <ng-content></ng-content>
         </div>
     </mat-sidenav-content>

@@ -17,3 +17,14 @@
     left: 0;
     right: 0;
 }
+
+.sidenav-list {
+    list-style: none;
+    padding-left: 0;
+    min-width: 180px;
+    text-align: center;
+    li > a {
+        width: 100%;
+    }
+}
+
