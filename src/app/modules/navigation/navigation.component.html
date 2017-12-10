@@ -1,0 +1,22 @@
+<mat-sidenav-container class="main-container">
+    <!-- Sidenav -->
+    <mat-sidenav
+        class="sidenav"
+        position="end"
+        [mode]="mobileQuery.matches ? 'over' : 'push'"
+        [opened]="show"
+        [fixedInViewport]="true"
+        [fixedTopGap]="mobileQuery.matches ? 56 : 64">
+        Translator <br>
+        Full history <br>
+        Settings <br>
+        About <br>
+    </mat-sidenav>
+
+    <!-- Main content-->
+    <mat-sidenav-content>
+        <div class="content-wrapper">
+            <ng-content></ng-content>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
