@@ -10,14 +10,8 @@ import {
     ViewChild
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Route, Routes } from '@angular/router';
 import { globalRoutes } from '../routing';
-
-// Data for generation of navigation links
-export interface RouteLinkData {
-    label: string;
-    path: string;
-}
+import { RouteLinkData } from './navigation.interface';
 
 /**
  * Main navigation component
