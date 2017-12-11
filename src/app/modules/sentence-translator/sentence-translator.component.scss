@@ -1,0 +1,48 @@
+:host {
+    position: relative;
+    display: block;
+}
+
+.auto-translate {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0;
+    z-index: 20;
+}
+
+mat-grid-list {
+    min-height: 600px;
+}
+
+
+mat-card-content {
+    &.output {
+        height: calc(100% - 60px);
+        overflow: auto;
+    }
+}
+
+.active {
+    background-color: #ff8d28;
+    transition: background-color 1s ease;
+    mat-icon {
+        animation: rotation 2s infinite linear;
+    }
+}
+
+#loading {
+
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(359deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}

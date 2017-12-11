@@ -1,0 +1,45 @@
+<!-- If history entries does not exist -->
+<mat-grid-list cols="1" rowHeight="70px" *ngIf="!history.length">
+
+    <mat-grid-tile>
+        <mat-card class="no-entries">
+            <mat-card-content>
+                No history of translations.
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+
+</mat-grid-list>
+
+<!-- If history entries exists -->
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let entry of history">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Translation entry
+            </mat-panel-title>
+            <mat-panel-description>
+                Created: {{ entry.timestamp | date: 'medium' }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <!-- Input -->
+        <label>Input:</label>
+        <div class="input">
+            <p>{{ entry.input }}</p>
+        </div>
+
+        <!-- Output -->
+        <label>Output:</label>
+        <div class="output">
+            <p>{{ entry.output }}</p>
+        </div>
+
+        <mat-card-actions>
+            <button mat-raised-button color="warn"
+                    (click)="removeHistoryEntry(entry.timestamp)">
+                Remove entry
+            </button>
+        </mat-card-actions>
+    </mat-expansion-panel>
+</mat-accordion>

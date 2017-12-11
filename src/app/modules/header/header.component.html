@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <!-- Title & icon -->
+    <mat-icon>{{ toolbarTitleIcon }}</mat-icon>
+    <h1 class="mat-display-1 fill-remaining-space">{{ toolbarTitle }}</h1>
+
+    <!-- Side-menu toggle -->
+    <button class="side-nav-toggle" mat-raised-button (click)="toggle()">
+        <ng-container *ngIf="buttonToggle">
+            <mat-icon>{{ buttonIconToggle }}</mat-icon>
+            {{ buttonLabelToggle }}
+        </ng-container>
+        <ng-container *ngIf="!buttonToggle">
+            <mat-icon>{{ buttonIcon }}</mat-icon>
+            {{ buttonLabel }}
+        </ng-container>
+    </button>
+</mat-toolbar>

@@ -1,0 +1,29 @@
+// Material theme
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+// Material global overwrites
+
+mat-card-header {
+    &.border-bottom {
+        border-bottom: 1px solid #cfcfcf;
+        margin-bottom: 20px;
+    }
+    .mat-card-header-text {
+        margin: 0;
+    }
+}
+
+mat-card {
+    box-sizing: border-box;
+    height: 90%;
+    padding: 30px;
+    width: 90%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-card-header {
+    margin: 0;
+}

@@ -1,0 +1,59 @@
+<!-- Grid -->
+<mat-grid-list cols="1" rowHeight="350px">
+
+    <!-- Other settings -->
+    <mat-grid-tile>
+        <mat-card class="other">
+            <mat-card-header class="border-bottom">
+                <mat-card-title>
+                    Settings
+                </mat-card-title>
+                <mat-card-subtitle>
+                    Various useful settings that changes application behaviour.
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <!-- History limit -->
+                <mat-form-field floatLabel="auto">
+                    <mat-label>History limit</mat-label>
+                    <input matInput
+                           type="number"
+                           step="1"
+                           min="0"
+                           placeholder="Provide number"
+                           [(value)]="historyLimit">
+                </mat-form-field>
+
+                <!-- Auto-translation  -->
+                <mat-slide-toggle
+                    [checked]="autoTranslateAllowed"
+                    (change)="autoTranslateAllowed = !autoTranslateAllowed">
+                    Auto-translation{{ autoTranslateAllowed ? '' : ' not'}} allowed
+                </mat-slide-toggle>
+
+                <mat-slide-toggle
+                    [checked]="autoTranslateEnabled"
+                    (change)="autoTranslateEnabled = !autoTranslateEnabled">
+                    Auto-translation is {{ autoTranslateEnabled ? 'enabled' : 'disabled'}}
+                </mat-slide-toggle>
+
+                <!-- Preserve punctuation  -->
+                <mat-slide-toggle
+                    [checked]="respectPunctuation"
+                    (change)="respectPunctuation = !respectPunctuation">
+                    Translation will {{ respectPunctuation ? '' : ' not'}} respect punctuation
+                </mat-slide-toggle>
+
+
+                <!-- Preserve capitalisation  -->
+                <mat-slide-toggle
+                    [checked]="preserveCapitalisation"
+                    (change)="preserveCapitalisation = !preserveCapitalisation">
+                    Translation will {{ preserveCapitalisation ? '' : ' not'}} preserve capitalisation
+                </mat-slide-toggle>
+
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+
+</mat-grid-list>

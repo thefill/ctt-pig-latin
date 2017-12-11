@@ -1,0 +1,30 @@
+<mat-sidenav-container class="main-container"
+                       (backdropClick)="onHide()">
+    <!-- Sidenav -->
+    <mat-sidenav
+        class="sidenav"
+        position="end"
+        [mode]="mobileQuery.matches ? 'over' : 'push'"
+        [(opened)]="show"
+        [fixedInViewport]="true"
+        [fixedTopGap]="mobileQuery.matches ? 56 : 64"
+    >
+        <!-- Sidenav content -->
+        <ng-container class="sidenav-content">
+            <ul class="sidenav-list" #sidenavList>
+                <!-- Generate links based on provided data -->
+                <li *ngFor="let routeLink of routeLinks">
+                    <a class="sidenav-link" mat-button [routerLink]="routeLink.path">{{ routeLink.label }}</a>
+                </li>
+            </ul>
+        </ng-container>
+    </mat-sidenav>
+
+    <!-- Main content-->
+    <mat-sidenav-content>
+        <div class="content-wrapper">
+            <!-- Project content from outside -->
+            <ng-content></ng-content>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

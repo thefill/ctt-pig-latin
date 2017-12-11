@@ -1,0 +1,41 @@
+:host {
+    display: block;
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @media (max-width: 600px) {
+        top: 56px;
+    }
+}
+
+.main-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.sidenav-list {
+    list-style: none;
+    padding-left: 0;
+    min-width: 180px;
+    text-align: center;
+    li > a {
+        width: 100%;
+    }
+}
+
+mat-sidenav-content {
+    padding: 30px;
+    height: calc(100% - 64px);
+
+    @media (max-width: 600px) {
+        height: calc(100% - 56px);
+    }
+    .content-wrapper {
+        background: white;
+    }
+}
