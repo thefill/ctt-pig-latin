@@ -1,35 +1,31 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NavigationComponent } from './navigation.component';
 import { MaterialThemeModule } from '../material-theme';
-import { RouterModule } from '@angular/router';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { SettingsComponent } from './settings.component';
+import { SettingsService } from './settings.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
 
-describe('NavigationComponent', () => {
-    let component: NavigationComponent;
-    let fixture: ComponentFixture<NavigationComponent>;
+describe('SettingsComponent', () => {
+    let component: SettingsComponent;
+    let fixture: ComponentFixture<SettingsComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
                 MaterialThemeModule,
-                RouterModule,
-                BrowserAnimationsModule,
-                RouterTestingModule
+                BrowserAnimationsModule
             ],
             providers: [
-                MediaMatcher
+                SettingsService
             ],
             declarations: [
-                NavigationComponent
+                SettingsComponent
             ]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(NavigationComponent);
+        fixture = TestBed.createComponent(SettingsComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

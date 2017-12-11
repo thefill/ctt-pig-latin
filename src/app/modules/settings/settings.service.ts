@@ -7,7 +7,7 @@ import { TranslationRule } from './settings.interface';
 @Injectable()
 export class SettingsService {
     // preserve punctuations
-    public preservePunctuation = true;
+    public respectPunctuation = true;
     // preserve capitalisation
     public preserveCapitalisation = true;
 
@@ -23,7 +23,11 @@ export class SettingsService {
     }
 
     // auto-translate as user type
-    public autoTranslate = false;
+    public autoTranslateAllowed = false;
+
+    // is auto-translate enabled
+    public autoTranslateEnabled = false;
+
     // limit for history entries
     public historyLimit = 10;
 
@@ -62,7 +66,18 @@ export class SettingsService {
     compileRules(rules: TranslationRule[]): TranslationRule[] {
         // generate / regenerate final predicate for provided rules
         return rules.map(rule => {
-            // TODO: implement
+            // build final predicate
+            let predicate = `^[${rule.predicatePartials.join('')}]`;
+
+            // if we match cluster
+            if (rule.clustering) {
+                predicate += '+';
+            } else {
+                // we match exaclty one partial
+                predicate += '{1}';
+            }
+
+            rule.predicate = new RegExp(predicate);
             return rule;
         });
     }

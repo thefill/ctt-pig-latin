@@ -30,7 +30,11 @@
 
 mat-sidenav-content {
     padding: 30px;
-    background: red;
+    height: calc(100% - 64px);
+
+    @media (max-width: 600px) {
+        height: calc(100% - 56px);
+    }
     .content-wrapper {
         background: white;
     }

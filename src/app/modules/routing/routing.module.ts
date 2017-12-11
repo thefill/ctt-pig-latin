@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from '../about';
 import { SettingsComponent } from '../settings';
 import { HistoryComponent } from '../history';
 import { SentenceTranslatorComponent } from '../sentence-translator';
@@ -26,13 +25,6 @@ export const globalRoutes: Routes = [
         component: SettingsComponent,
         data: {
             routeTitle: 'Settings'
-        }
-    },
-    {
-        path: 'about',
-        component: AboutComponent,
-        data: {
-            routeTitle: 'About'
         }
     }
 ];
