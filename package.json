@@ -14,7 +14,7 @@
         "clean": "rimraf dist",
         "lint-test-build": "yarn lint && yarn test-once && yarn build",
         "git-add": "git add . && git add coverage dist --force",
-        "git-commit": "git commit -m \"Pre-push build\"",
+        "git-commit": "git commit -m 'Pre-push build'",
         "precommit": "yarn lint",
         "prepush": "yarn lint-test-build && yarn git-add && git-commit"
     },

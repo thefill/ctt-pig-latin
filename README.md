@@ -40,6 +40,10 @@ Conversion.
 You can include third party libraries to do things like nicely output alerts, or CSS frameworks like
 Bootstrap/Foundation etc. if desired, to make the app feel more feature rich.
 
+## TODO:
+- just initial unit tests provided
+- no mobile optimisation
+
 ## Usage
 
 ### Development server
