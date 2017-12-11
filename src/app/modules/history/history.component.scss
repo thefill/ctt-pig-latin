@@ -1,0 +1,28 @@
+:host {
+    position: relative;
+    display: block;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.input,
+.output{
+    background: #e4e4e4;
+    p {
+        max-height: 200px;
+        overflow: auto;
+        padding: 20px;
+    }
+}
+
+.date {
+    margin-left: 10px;
+    border-left: 1px solid #cfcfcf;
+    padding-left: 10px;
+}
+
+.no-entries {
+    text-align: center;
+}
