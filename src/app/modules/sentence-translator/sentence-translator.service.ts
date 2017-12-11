@@ -131,51 +131,55 @@ export class SentenceTranslatorService {
             .replace(backupEndPattern, '')
             .split(backupPattern);
 
-        // for each of the word apply transformation
-        words = words.map(word => {
-            // Execute first matching rule
-            this.settingsService.translationRules.some(rule => {
-                let capitalised = false;
-                // if we preserve capitalisation
-                if (this.settingsService.preserveCapitalisation) {
-                    // is capitalised?
-                    capitalised = word[0] === word[0].toUpperCase();
-                }
+        // if any words produced and first word and empty (if empty then split failed)
+        if (words.length && words[0].length) {
 
-                // word to lower-case
-                word = word.toLowerCase();
-
-                const match = rule.predicate.exec(word);
-                // if match apply translation
-                if (match) {
-                    // if we move matched partial to the end of the word
-                    if (rule.needleToTheEnd) {
-                        const matchedPartial = match[0];
-                        // remove p
-                        word = word.substring(matchedPartial.length) + matchedPartial;
+            // for each of the word apply transformation
+            words = words.map(word => {
+                // Execute first matching rule
+                this.settingsService.translationRules.some(rule => {
+                    let capitalised = false;
+                    // if we preserve capitalisation
+                    if (this.settingsService.preserveCapitalisation) {
+                        // is capitalised?
+                        capitalised = word[0] === word[0].toUpperCase();
                     }
 
-                    // if suffix provided
-                    if (rule.suffix && rule.suffix.length) {
-                        // add it at the end
-                        word += rule.suffix;
+                    // word to lower-case
+                    word = word.toLowerCase();
+
+                    const match = rule.predicate.exec(word);
+                    // if match apply translation
+                    if (match) {
+                        // if we move matched partial to the end of the word
+                        if (rule.needleToTheEnd) {
+                            const matchedPartial = match[0];
+                            // remove p
+                            word = word.substring(matchedPartial.length) + matchedPartial;
+                        }
+
+                        // if suffix provided
+                        if (rule.suffix && rule.suffix.length) {
+                            // add it at the end
+                            word += rule.suffix;
+                        }
+
+                        // if capitalised
+                        if (capitalised) {
+                            word = word[0].toUpperCase() + word.substring(word[0].length);
+                        }
+
+                        // stop searching for the rule - we have found correct one
+                        return true;
                     }
 
-                    // if capitalised
-                    if (capitalised) {
-                        word = word[0].toUpperCase() + word.substring(word[0].length);
-                    }
+                    // check another rule
+                    return false;
+                });
 
-                    // stop searching for the rule - we have found correct one
-                    return true;
-                }
-
-                // check another rule
-                return false;
+                return word;
             });
-
-            return word;
-        });
+        }
 
         // we have all words translated - now lets rebuild sentence from the backup
         // If we collected anything at the begin and end of string - lets handle that
