@@ -10,7 +10,6 @@ import { RoutingModule } from './modules/routing';
 import { SentenceTranslatorModule } from './modules/sentence-translator';
 import { SettingsModule } from './modules/settings';
 import { HistoryModule } from './modules/history';
-import { AboutModule } from './modules/about';
 
 @NgModule({
     declarations: [
@@ -34,8 +33,6 @@ import { AboutModule } from './modules/about';
         SettingsModule,
         // History module
         HistoryModule,
-        // About module
-        AboutModule
     ],
     providers: [
         // utils for procedurally handling mediaQueries
