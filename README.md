@@ -1,5 +1,7 @@
 # CttPigLatin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/thefill/ctt-pig-latin.svg)](https://greenkeeper.io/)
+
 ## Specification
 
 ### Core requirements
